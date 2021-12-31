@@ -1,16 +1,241 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/* 
+  phone: 576px,
+  tablet: 768px,
+  laptop: 992px,
+  desktop: 1200px,
+  desktop-large: 1400px 
+*/
+
+/* ------------------------------VARIABLES */
+:root {
+  --white: #ffffff;
+  --light: #ece7e7;
+  --green:#116d1e;
+  --dark: #000814;
+  --red: #960c0c;
+  --oxford-blue: #001d3d;
+  --prussian-blue: #003566;
+  --mikado-yellow: #ffc300;
+  --gold-web: #ffd60a;
+  --gold-web-transparent: #ffd60a50;
+  --font-dancing: "Dancing Script", cursive;
+  --font-roboto: "Roboto", sans-serif;
+  --fw-regular: 400;
+  --fw-bold: 700;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
+/* ------------------------------TAGS */
+html {
   box-sizing: border-box;
+  font-size: 62.5%;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+body {
+  font-family: var(--font-roboto);
+  font-size: 2rem;
+}
+img {
+  width: 100%;
+}
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 3.8rem ;
+}
+h2 {
+  font-size: 3.3rem;
+}
+h3 {
+  font-size: 2.8rem;
+}
+h4 {
+  font-size: 2.3rem;
+}
+
+/* breakpoints font size h1,h2,h3,h4*/
+@media (min-width: 576px ){ 
+  h1{
+    font-size: 4.2rem;
+  }
+  h2 {
+    font-size: 3.8rem;
+  }
+  h3 {
+    font-size: 3.3rem;
+  }
+  h4 {
+    font-size: 2.8rem;
+  }
+}
+
+a{
+  text-decoration: none
+}
+ul{
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+textarea{
+  resize: none;
+}
+/* ------------------------------UTILITIES*/
+
+.container {
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.danger{
+  margin: 1rem 0;
+  background-color: var(--red)!important;
+}
+.success{
+  background-color: var(--green);
+}
+.hide{
+  transform: translateY(-200%) rotate(180deg);
+}
+@media (min-width: 768px ){ 
+  .hide{
+    transform: translateY(-300%);
+  }
+}
+.show{
+  transform: translateY(0);
+}
+
+/*
+ 18rem === .nav{height:18rem;}
+ (see -> navbar.module.css -> .nav) 
+ */
+.top-margin{
+  margin-top: 18rem;
+}
+@media (min-width: 212px ){ 
+  .top-margin{
+     margin-top: 14rem;
+  }
+}
+@media (min-width: 576px ){ 
+  .top-margin{
+     margin-top: 9rem;
+  }
+}
+.pages-title{
+  margin: auto;
+  width: 90%;
+  max-width: 130rem;
+  color: var(--oxford-blue);
+}
+.pages-title::after{
+  content: '';
+  display: block;
+  width: 90%;
+  height: .3rem;
+  background-color: var(--gold-web);
+}
+
+.no-scroll{
+  overflow: hidden;
+}
+
+/* ------------------------------COMPONENTS */
+
+/* ---- msg alerts */
+.msg{
+  margin: 1rem 0;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  text-align: center;
+  font-weight: var(--fw-bold);
+  color: var(--light);
+}
+
+/*---- buttons */
+.btn {
+  padding: .5rem 1rem;
+  font-weight: var(--fw-bold);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/*---- global forms */
+.field {
+  margin-top: 2rem;
+}
+.field__label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: var(--fw-bold);
+  color: var(--light);
+}
+.field__label_img{
+  display: block;
+  margin: 2rem 0;
+  padding: 1rem;
+  text-align: center;
+  color: var(--light);
+  border:.1rem solid var(--gold-web);
+  border-radius: .3rem;
+}
+.field__input, select {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border:none;
+}
+.field__input_img{
+  display: none;
+}
+
+.fieldButtons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.field__login-submit,
+.field__login-cancel {
+  background-color: transparent;
+  font-size: 1.8rem;
+}
+
+.field__login-submit {
+  color: var(--light);
+}
+.field__login-cancel {
+  color: var(--red);
+}
+
+.field__login-submit:hover,
+.field__login-cancel:hover {
+  box-shadow: 0 0 .3rem var(--light);
+}
+
+.field__input_post{
+  width: 100%;
+  margin-top: 2rem;
+  background-color: var(--gold-web);
+  color: var(--oxford-blue);
 }

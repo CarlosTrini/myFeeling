@@ -1,0 +1,25 @@
+.pubUser__container {
+  max-width: 80rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--oxford-blue);
+}
+.pubUser__form {
+  margin: auto;
+  width: 70%;
+}
+.pubUser__story_body {
+  height: 20rem;
+}
+
+.pubUser__form input[type="file"] {
+  border: 0.1rem solid var(--light);
+  color: var(--light);
+  font-weight: var(--fw-bold);
+  text-align: center;
+}
+.pubUser__card_prev {
+  margin: 2rem auto;
+  color: var(--gold-web);
+}

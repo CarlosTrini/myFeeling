@@ -1,0 +1,77 @@
+/* PROFILE PAGE */
+.profile {
+}
+
+
+.profile__title{
+  text-transform: capitalize;
+  text-align: center;
+}
+/* PROFILE NAVBAR COMPONENT */
+.profile_nav {
+  border-bottom: 0.5rem solid var(--gold-web);
+}
+.profile_nav ul {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.profile_nav a {
+  padding: 0.6rem;
+  font-size: 2.2rem;
+  color: var(--oxford-blue);
+  transition: background-color 0.3s ease-in-out;
+}
+.profile_nav a:hover {
+  background-color: var(--gold-web-transparent);
+}
+
+/* PROFILE USER_DATA PAGE */
+.profile__mydata {
+  margin: 2rem 0;
+}
+.profile__mydata_details {
+  color: var(--oxford-blue);
+}
+.profile__mydata_details p {
+  margin: 1rem 0;
+  font-weight: var(--fw-bold);
+}
+.profile__mydata_details p span {
+  font-weight: var(--fw-regular);
+}
+
+
+/* PROFILE USER_PUBLICATIONS PAGE */
+.profile__pubs{
+  margin: 2rem 0;
+}
+
+.profile__pubs_titles {
+  max-width: 100rem;
+  margin:2rem auto;
+}
+.profile__titles{
+   display: flex;
+   gap:2rem;
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+.profile__titles li{
+  flex:0 1 40rem;
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  border-radius: .5rem;
+  box-shadow: 0 .2rem .2rem var(--oxford-blue);
+  overflow: hidden;
+  transition: all .3s ease-in-out;
+}
+
+.profile__titles li:hover{
+  background-color: var(--gold-web-transparent);
+  transform: scale(1.1);
+}
+.profile__title_btn {
+  text-transform: capitalize;
+}

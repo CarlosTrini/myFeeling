@@ -32,3 +32,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+
+id: 1
+title: 'titulo del escrito' (15)
+description: 'una breve introducción' (20)
+storybody: 'aqui va el contenido de la historia' (200)
+category: 'terror'
+hasvoted: [id1, id2, id3, id4, id5]     
+votes: 4      
+comments: [ {id: 1, comment: 'el comentario en si (50), user:'quien comento' } ]
+writer: 'propietario de la historia'

@@ -1,0 +1,142 @@
+.nav{
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 100;
+   width: 100%;
+   height: 18rem;
+   padding: 1rem 0;
+   background-color: var(--dark);
+}
+@media (min-width: 212px ){
+   .nav{
+      height: 14rem;
+   }
+}
+@media (min-width: 576px ){
+   .nav{
+      height: 9rem;
+   }
+}
+
+.nav__container{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   flex-wrap: wrap;
+}
+@media (min-width: 212px ){
+   .nav__container{
+      justify-content: space-between;
+   }
+ }
+
+.nav__it{
+   text-align: center;
+}
+@media (min-width: 576px ){
+   .nav__it{
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+   }
+
+}
+
+.nav__it_title{
+   font-family: var(--font-dancing);
+   color: var(--light);
+}
+.nav__it_title span{
+   font-weight: var(--fw-regular);
+}
+
+
+.nav__hamburguer{
+   margin-top: 1rem;
+   text-align: right;
+   cursor:pointer;
+}
+.nav__hamburguer img:active{
+   transition: all .05s ease-in-out;
+   transform: scale(1.2);
+}
+
+.nav__links{
+   position: absolute;
+   left: 0;
+   top:100%;
+   width: 100%;
+   background-color: var(--dark);
+   border-top: .1rem solid var(--light);
+   transition:  all .3s ease-in-out;
+}
+.nav__links_container{
+   max-width: 120rem;
+   margin:1.2rem auto;
+}
+.nav__links small{
+   font-size: 1.4rem;
+   color: var(--gold-web);
+   display: block;
+}
+.nav__links  a{
+   display: block;
+   padding: 1.2rem 0;
+   text-transform: capitalize;
+   text-align: center;
+   font-weight:var(--fw-bold);
+   color: var(--gold-web);
+}
+
+.nav__links button{
+   display: block;
+   margin: 0 auto;
+}
+.nav__links a::after,
+.nav__links button::after{
+   content: '';
+   display: block;
+   width: 50%;
+   height: .5rem;
+   margin: .5rem auto 0 auto;
+   border-radius: .5rem;
+   opacity: 0;
+   background:linear-gradient(to right, var(--light), var(--gold-web)) ;
+   transition: all .3s ease-in-out;
+}
+.nav__links a:hover{
+   color: var(--light);
+}
+.nav__links a:hover::after,
+.nav__links button:hover::after{
+   opacity: 1;
+   background-color: blue!important;
+}
+
+@media (min-width: 768px ){
+   .nav__links{
+      height: fit-content;
+   }
+   .nav__links ul{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+   }
+   .nav__links a{
+      padding: 0;
+   }
+}
+
+
+
+/* SEE IN globals.css */
+/* .hide{
+   z-index: -100;
+   opacity: 0;
+ }
+ .show{
+   z-index: 100;
+   opacity: 1;
+ } */
+
