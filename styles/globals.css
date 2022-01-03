@@ -37,6 +37,7 @@ html {
 body {
   font-family: var(--font-roboto);
   font-size: 2rem;
+  background-color: var(--light);
 }
 img {
   width: 100%;
@@ -225,12 +226,13 @@ textarea{
   color: var(--light);
 }
 .field__login-cancel {
-  color: var(--red);
+  color: var(--oxford-blue);
+  text-shadow: 0 0 .2rem var(--light);
 }
 
 .field__login-submit:hover,
 .field__login-cancel:hover {
-  box-shadow: 0 0 .3rem var(--light);
+  box-shadow: .1rem .3rem .2rem var(--light);
 }
 
 .field__input_post{

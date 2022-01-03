@@ -1,10 +1,12 @@
 import { regexEmail } from "../helpers/constants";
 import { alertTimer } from "../helpers/sweetAlerts";
 
-const registerValidation = (data, successFn) => {
-   const { email, password, user } = data;
+const loginValidation = (data, successFn) => {
+   const { email, password } = data;
 
-   if ([email, password, user].includes('')) return  alertTimer('error', 'Los campos son obligatorios');
+   if ([email, password].includes('')) return  alertTimer('error', 'Los campos son obligatorios');
+
+    
 
     console.log(regexEmail.test(email))
     if(!regexEmail.test(email)) return alertTimer('error', 'Correo no válido');
@@ -12,4 +14,4 @@ const registerValidation = (data, successFn) => {
    //success function
    successFn(data);
 }
-export default registerValidation;
+export default loginValidation;

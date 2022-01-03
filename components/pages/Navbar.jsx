@@ -19,6 +19,7 @@ import keyIcon from '../../public/img/key.svg';
 
 
 const Navbar = () => {
+
    const { userSession, closeSessionFn } = useContext(authContext);
    const [showMenu, setShowMenu] = useState(false);
    const [isLogin, setIsLogin] = useState(false);
@@ -135,7 +136,7 @@ const Navbar = () => {
 
 
          </div>{/* container */}
-      </nav>
+      </nav >
    )
 }
 

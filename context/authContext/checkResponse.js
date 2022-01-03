@@ -5,7 +5,8 @@ const checkResponse = (codeToCheck) => {
       'auth/internal-error':'Ha ocurrido un error',
       'auth/invalid-email':'El correo no es correcto',
       'auth/user-not-found': 'Este usuario no fue encontrado',
-      'auth/wrong-password': 'Contraseña incorrecta'
+      'auth/wrong-password': 'Contraseña incorrecta',
+      'auth/too-many-requests': 'Algo está sucediendo, intente más tarde'
    }
 
    return errorsSelector[codeToCheck];

@@ -8,10 +8,13 @@ import {
    updateProfile,
    signInWithEmailAndPassword,
    onAuthStateChanged,
-   signOut
+   signOut,
+   sendPasswordResetEmail,
+   // sendEmailVerification
 } from "firebase/auth";
-import authContext from "./authContext"; 
+import authContext from "./authContext";
 import checkResponse from "./checkResponse";
+import { alertTimer } from "../../helpers/sweetAlerts";
 
 
 
@@ -20,7 +23,7 @@ const AuthProvider = ({ children }) => {
 
    //usestate
    const [userSession, setUserSession] = useState({});
-   const [alert, setAlert] = useState({msg:'', error:false, type:''});
+   const [alert, setAlert] = useState({ msg: '', error: false, type: '' });
 
    const newUserFn = async ({ email, password, user }) => {
       try {
@@ -28,28 +31,21 @@ const AuthProvider = ({ children }) => {
          await updateProfile(auth.currentUser, {
             displayName: user
          });
+
          Router.push('/');
       } catch (error) {
          console.error(error.message);
-         return setAlert( {
-            msg:checkResponse(error.code),
-            error:true,
-            type: 'danger'
-         });
+         alertTimer('error', checkResponse(error.code));
       }
    }
-   
-   const loginFn = async ({email, password}) => {
+
+   const loginFn = async ({ email, password }) => {
       try {
          await signInWithEmailAndPassword(auth, email, password);
          Router.push('/');
       } catch (error) {
          console.error(error.code);
-         return setAlert({
-            msg: checkResponse(error.code),
-            error:true,
-            type: 'danger'
-         });
+         alertTimer('error', checkResponse(error.code));
       }
    }
 
@@ -76,6 +72,17 @@ const AuthProvider = ({ children }) => {
       }
    }
 
+   const resetPasswordFn = async (email) => {
+      try {
+         await sendPasswordResetEmail(auth, email);
+         alertTimer('info', 'El mensaje fue enviado a tu correo', 3000);
+      } catch (error) {
+         console.log(error.code);
+         alertTimer('error', checkResponse(error.code));
+      }
+
+   }
+
    return (
       <authContext.Provider
          value={{
@@ -85,6 +92,7 @@ const AuthProvider = ({ children }) => {
             loginFn,
             closeSessionFn,
             statusLogin,
+            resetPasswordFn
          }}
       >
          {children}

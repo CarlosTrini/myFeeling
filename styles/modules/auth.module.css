@@ -2,8 +2,7 @@
   width: 100%;
   min-height: 100vh;
   padding: 1rem;
-  background: var(--light) url("../../public/img/login.png") center/cover
-    no-repeat;
+  background: linear-gradient(to left, var(--dark), var(--oxford-blue)50%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,10 +40,6 @@
     gap: 1rem;
   }
 }
-/* 
-.auth__img {
-  flex: 0 0 40rem;
-} */
 
 .auth__form {
   flex: 1;
@@ -77,4 +72,11 @@
 
 .form__register:hover::after {
   background-color: var(--light);
+}
+
+.form__extras_actions{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }

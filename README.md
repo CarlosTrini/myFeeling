@@ -33,15 +33,25 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-
-
-
 id: 1
 title: 'titulo del escrito' (15)
 description: 'una breve introducción' (20)
 storybody: 'aqui va el contenido de la historia' (200)
 category: 'terror'
-hasvoted: [id1, id2, id3, id4, id5]     
-votes: 4      
+hasvoted: [id1, id2, id3, id4, id5]  
+votes: 4  
 comments: [ {id: 1, comment: 'el comentario en si (50), user:'quien comento' } ]
 writer: 'propietario de la historia'
+
+// DATA LOGIN
+const data = {
+email: 'correo@correo.com',
+password: 'thisismypassword',
+}
+
+// DATA REGISTER
+const data = {
+email: 'correo@correo.com',
+password: 'thisismypassword',
+user: 'CorreoAnónimo'
+}

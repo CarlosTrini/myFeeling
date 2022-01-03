@@ -1,5 +1,5 @@
 import { alertTimer } from '../helpers/sweetAlerts';
-const postValidation = async(data, limits, imgFile, localStorageFn, success) => {
+const postValidation = async(data, limits, imgFile, localStorageFn, successFn) => {
    const { category, title, description, storybody, writer } = data;
    const {limitTitle, limitDescription, limitStory} = limits;
 
@@ -18,10 +18,7 @@ const postValidation = async(data, limits, imgFile, localStorageFn, success) => 
       alertTimer('info', 'Ocurrió un error interno al capturar tu usuario o la fecha', 3000);
    }
 
-   //success function -> just when all is alright
-   const dataResponse = await success(data, imgFile);
-   console.log(dataResponse)
-
-
+   //successFn function -> just when all is alright
+   const dataResponse = await successFn(data, imgFile);
 }
 export default postValidation;
