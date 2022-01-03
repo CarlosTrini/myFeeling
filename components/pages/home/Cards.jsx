@@ -9,7 +9,7 @@ const Cards = ({ cardsMyFeeling }) => {
       <>
          {
             cardsMyFeeling.map(data =>
-               <article className={styles.options__card}>
+               <article className={styles.options__card}  key={data.title}>
                   <header className={styles.options__card_header}>
                      <Image src={data.img} width='200' height='200' />
                      <h4>{data.title}</h4>

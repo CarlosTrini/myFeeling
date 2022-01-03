@@ -88,6 +88,7 @@ a{
   text-decoration: none
 }
 ul{
+  margin: 0;
   padding: 0;
 }
 li{
@@ -131,12 +132,12 @@ textarea{
 }
 @media (min-width: 212px ){ 
   .top-margin{
-     margin-top: 14rem;
+     margin-top: 15rem;
   }
 }
 @media (min-width: 576px ){ 
   .top-margin{
-     margin-top: 9rem;
+     margin-top: 11rem;
   }
 }
 .pages-title{

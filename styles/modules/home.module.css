@@ -7,6 +7,7 @@
   width: 100%;
   min-height: 100vh;
   background: url("/img/hero.svg") center/cover no-repeat fixed;
+  margin-top:9rem ;
 }
 
 .hero__container {
@@ -118,6 +119,7 @@
   background-color: blue;
   width: 100%;
   min-height: 100vh;
+  padding: 2rem 0;
   background: url("/img/library.jpg") center/cover no-repeat fixed;
 }
 
@@ -128,6 +130,11 @@
    text-transform: capitalize;
    color: var(--white);
    background-color: var(--gold-web-transparent);
+}
+.options__title span{
+  font-family: var(--font-dancing);
+  font-weight: var(--fw-bold);
+  color: var(--oxford-blue);
 }
 
 .options__card_container {

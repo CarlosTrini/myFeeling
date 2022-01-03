@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Router from 'next/router';
 
-import { doc, updateDoc, increment, arrayUnion, getDoc, addDoc, collection, query, where, getDocs } from 'firebase/firestore';
+import { doc, updateDoc, increment, arrayUnion, getDoc, addDoc, collection, query, where, getDocs, deleteDoc } from 'firebase/firestore';
 import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
 import { db, storage } from '../../firebase/firebaseConfig';
 
@@ -76,13 +76,12 @@ export const UserProvider = ({ children }) => {
       }
 
       // FIRST ADD IMAGE
-      const storageRef = ref(storage, `images/${imageName}`); // REFERENCE
+      const path = `images/${imageName}`;
+      const storageRef = ref(storage, path); // REFERENCE
 
       const task = uploadBytesResumable(storageRef, imgFile, metaData);
 
       try {
-
-
          task.on('state_changed',
             (snapshot) => {
                // Observe state change events such as progress, pause, and resume
@@ -107,12 +106,13 @@ export const UserProvider = ({ children }) => {
                   // SECOND GET URL IMAGE AND ADD TO data... NOW  SAVE STORY...
                   const url = await getDownloadURL(task.snapshot.ref);
                   data.urlimage = url;
+                  data.refimage = path;
                   await addDoc(collection(db, "stories"), data);
                   await alertTimer('success', 'Tu historia ha sido publicada correctamente');
                   Router.push('/');
                } catch (error) {
                   console.error(error);
-                  const delImg = await deleteObject(storageRef);
+                  await deleteObject(storageRef);
                   alertTimer('error', 'Ha ocurrido un error al agregar la historia, la imagen agregada se ha borrado, Inténtelo más tarde', 4000);
                }
             }
@@ -120,6 +120,20 @@ export const UserProvider = ({ children }) => {
       } catch (error) {
          console.log(error);
          alertTimer('error', 'Ha ocurrido un error al guardar la imagen');
+      }
+   }
+
+
+   const deleteStoryFn = async(refImage, refStory) => {
+      const storageRef = ref(storage, refImage); // REFERENCE
+      try {
+         alertTimer('info', 'Eliminando historia...');
+         await deleteObject(storageRef)
+         await deleteDoc(doc(db, "stories", refStory));
+         Router.reload();
+      } catch (error) {
+         console.error(error);
+         alertTimer('info', 'Ha ocurrido un error al eliminar la historia, intenta más tarde', 2000);
       }
    }
 
@@ -172,6 +186,7 @@ export const UserProvider = ({ children }) => {
             addStoryFn,
             setStoryLocalStorageFn,
             getPublicationsFn,
+            deleteStoryFn
          }}
       >
          {children}

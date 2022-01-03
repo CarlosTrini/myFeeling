@@ -1,6 +1,6 @@
 /* --------------------------- PUBS PAGE*/
 .pubs {
-  margin-top: 2rem;
+  margin: 2rem auto;
   overflow-y: hidden;
 }
 @media (min-width: 768px) {
@@ -12,7 +12,8 @@
 
 .pubs__categories {
   position: relative;
-  margin-top: 2rem;
+  margin: 2rem auto;
+
 }
 @media (min-width: 768px) {
   .pubs__categories {

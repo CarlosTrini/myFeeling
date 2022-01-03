@@ -10,7 +10,6 @@ import {
    onAuthStateChanged,
    signOut,
    sendPasswordResetEmail,
-   // sendEmailVerification
 } from "firebase/auth";
 import authContext from "./authContext";
 import checkResponse from "./checkResponse";
@@ -26,6 +25,7 @@ const AuthProvider = ({ children }) => {
    const [alert, setAlert] = useState({ msg: '', error: false, type: '' });
 
    const newUserFn = async ({ email, password, user }) => {
+      alertTimer('info', 'Registrando...');
       try {
          await createUserWithEmailAndPassword(auth, email, password);
          await updateProfile(auth.currentUser, {
@@ -40,6 +40,7 @@ const AuthProvider = ({ children }) => {
    }
 
    const loginFn = async ({ email, password }) => {
+      alertTimer('info', 'Cargando...');
       try {
          await signInWithEmailAndPassword(auth, email, password);
          Router.push('/');

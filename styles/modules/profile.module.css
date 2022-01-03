@@ -9,6 +9,7 @@
 }
 /* PROFILE NAVBAR COMPONENT */
 .profile_nav {
+  padding-bottom: 1rem;
   border-bottom: 0.5rem solid var(--gold-web);
 }
 .profile_nav ul {
@@ -28,6 +29,7 @@
 
 /* PROFILE USER_DATA PAGE */
 .profile__mydata {
+  min-height: 50vh;
   margin: 2rem 0;
 }
 .profile__mydata_details {
@@ -44,6 +46,7 @@
 
 /* PROFILE USER_PUBLICATIONS PAGE */
 .profile__pubs{
+  min-height: 50vh;
   margin: 2rem 0;
 }
 

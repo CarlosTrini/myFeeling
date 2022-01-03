@@ -4,7 +4,7 @@ import Image from 'next/image';
 import authContext from '../../context/authContext/authContext';
 import userContext from '../../context/userContext/userContext';
 import Modal from '../Modal';
-import { alertTimer } from '../../helpers/sweetAlerts';
+import { alertOptions, alertTimer } from '../../helpers/sweetAlerts';
 import commentValidationFn from '../../validationForms/commentValidation';
 
 import styles from '../../styles/modules/pubs.module.css'; // CONTENT STYLES MODAL
@@ -19,7 +19,7 @@ const Story = ({ setModalToggle, story }) => {
    const { title, storybody, comments, idstory, hasvoted, writer } = story;
    //context auth
    const { userSession } = useContext(authContext);
-   const { addVoteFn, addCommentFn } = useContext(userContext);
+   const { addVoteFn, addCommentFn, deleteStoryFn } = useContext(userContext);
 
    //states
    const [commentQty, setCommentQty] = useState(comments.length);
@@ -45,28 +45,30 @@ const Story = ({ setModalToggle, story }) => {
       setVote(voteStatus); //third if voteFn fail, replace again voteIcon and put voteEmptyIcon
    };
 
-   const handleDelete = () => {
-      console.log('borrando...');
+   const handleDelete = async() => {
+      const response = await alertOptions();
+      return response && deleteStoryFn(story.refimage, story.idstory);
    }
 
-   const handleSubmit = async(e) => {
+
+   const handleSubmit = async (e) => {
       e.preventDefault();
       if (!userSession.uid) return alertTimer('info', 'Necesitas iniciar para poder hacer un comentario');
-   
+
       const dataComment = {
          ...newComment,
          username: userSession.displayName,
          id: Date.now(),
          idstory
       }
-      
+
       const commentStatus = await commentValidationFn(dataComment, addCommentFn);
-      commentStatus && setNewComment({...newComment, comment: ''});
+      commentStatus && setNewComment({ ...newComment, comment: '' });
    }
 
    useEffect(() => {
       hasvoted.includes(userSession.uid) && setVote(true); //change iconVote empty or fill
-      if(userSession.uid === writer.id){
+      if (userSession.uid === writer.id) {
          setIsOwner(true);
       }
    }, [vote, userSession])

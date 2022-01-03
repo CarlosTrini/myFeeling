@@ -17,7 +17,7 @@ export default function Home({ dataCategories }) {
   const [errorCategories, setErrorCategories] = useState(false);
 
 
-console.log(dataCategories);
+  console.log(dataCategories);
   useEffect(() => {
     statusLogin();
     if (dataCategories.categoriesList.length > 0) {
@@ -34,10 +34,9 @@ console.log(dataCategories);
       <Hero />
       <Introduction />
       <main>
-        <Examples categories={categories} errorCategories={errorCategories}  />
+        <Examples categories={categories} errorCategories={errorCategories} />
         <Options />
       </main>
-
     </Layout>
   )
 }
