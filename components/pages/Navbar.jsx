@@ -69,12 +69,12 @@ const Navbar = () => {
                      <Link href='/'>
                         <a onClick={handleResponsiveMenu}>
                            <Image src={homeIcon} alt="profile link icon " />
-                           <small>home</small>
+                           <small>Inicio</small>
                         </a>
                      </Link>
                   </li>
                   <li>
-                     <Link href='/publications/[category]' as={`/publications/${'terror'}`} >
+                     <Link href='/publications/[category]' as={`/publications/terror`} >
                         <a onClick={handleResponsiveMenu}>
                            <Image src={publicationsIcon} alt="profile link icon " />
                            <small>publicaciones</small>
