@@ -20,19 +20,29 @@ const userpublications = () => {
 
    const getData = async () => {
       let data = [];
+
       if (![name, userSession.uid].includes(undefined)) {
          if (name === userSession.displayName) {
+            //registered user visiting his own profile
             //owner
             setIsOwner(true);
             data = await getPublicationsFn(userSession.uid, 'byid');
          }
-         else if (name !== userSession.displayName) {
-            //no owner
+         else if(name !== userSession?.displayName) {
+            // registered user visiting another profile/
+            // no owner
             setIsOwner(false);
             data = await getPublicationsFn(name, 'byname');
          }
          setStoriesUser(data);
       }
+      if (name && !userSession.uid) {
+         //no user login
+         setIsOwner(false);
+         data = await getPublicationsFn(name, 'byname');
+      }
+
+      setStoriesUser(data);
    }
 
    useEffect(() => {
@@ -43,7 +53,7 @@ const userpublications = () => {
       <LayoutProfile>
          <section className={styles.profile__pubs}>
             <h3 className={styles.profile__title}>
-               {isOwner ? 'Tus titulos': `Visitando los titulos de ${name}`}
+               {isOwner ? 'Tus titulos' : `Visitando los titulos de ${name}`}
             </h3>
             <div className={styles.profile__pubs_titles}>
                <ul className={styles.profile__titles}>

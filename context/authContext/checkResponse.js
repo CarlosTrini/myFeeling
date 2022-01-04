@@ -6,7 +6,9 @@ const checkResponse = (codeToCheck) => {
       'auth/invalid-email':'El correo no es correcto',
       'auth/user-not-found': 'Este usuario no fue encontrado',
       'auth/wrong-password': 'Contraseña incorrecta',
-      'auth/too-many-requests': 'Algo está sucediendo, intente más tarde'
+      'auth/too-many-requests': 'Algo está sucediendo, intente más tarde',
+      'auth/api-key-not-valid.-please-pass-a-valid-api-key.': 'Error de API KEY firebase'
+      
    }
 
    return errorsSelector[codeToCheck];

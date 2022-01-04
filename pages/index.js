@@ -12,7 +12,7 @@ import Options from "../components/pages/home/Options";
 
 export default function Home({ dataCategories }) {
   const { statusLogin, userSession } = useContext(authContext);
-
+  
   const [categories, setCategories] = useState([]);
   const [errorCategories, setErrorCategories] = useState(false);
 

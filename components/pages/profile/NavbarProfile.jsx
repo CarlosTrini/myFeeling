@@ -36,7 +36,7 @@ const NavbarProfile = () => {
                <Link href="/profile/user_publications/[name]"
                   as={`/profile/user_publications/${name}`}
                >
-                  <a>Publicaciones</a>
+                  <a>Mis Publicaciones</a>
                </Link>
             </li>
          </ul>

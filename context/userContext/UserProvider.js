@@ -138,6 +138,7 @@ export const UserProvider = ({ children }) => {
    }
 
    const getPublicationsFn = async (value, option) => {
+      
       let storiesList = [];
       let q = null;
       const storiesRef = collection(db, 'stories');
