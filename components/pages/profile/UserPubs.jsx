@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-import Modal from '../Modal';
-import Story from './Story';
+import Story from '../publications/Story';
 
-import styles from '../../styles/modules/profile.module.css';
+import styles from '../../../styles/modules/profile.module.css';
 
 const UserPubs = ({story}) => {
    const [modalToggle, setModalToggle] = useState(false);

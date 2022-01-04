@@ -16,8 +16,6 @@ export default function Home({ dataCategories }) {
   const [categories, setCategories] = useState([]);
   const [errorCategories, setErrorCategories] = useState(false);
 
-
-  console.log(dataCategories);
   useEffect(() => {
     statusLogin();
     if (dataCategories.categoriesList.length > 0) {

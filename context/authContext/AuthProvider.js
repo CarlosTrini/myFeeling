@@ -10,6 +10,7 @@ import {
    onAuthStateChanged,
    signOut,
    sendPasswordResetEmail,
+   sendEmailVerification
 } from "firebase/auth";
 import authContext from "./authContext";
 import checkResponse from "./checkResponse";
@@ -24,6 +25,15 @@ const AuthProvider = ({ children }) => {
    const [userSession, setUserSession] = useState({});
    const [alert, setAlert] = useState({ msg: '', error: false, type: '' });
 
+
+   const checkEmailVerified = () => {
+      console.log('verificando');
+      alertTimer('info','Ve y verifica tu correo registrado para poder acceder', 3000);
+      closeSessionFn();
+      Router.push('/login');
+   }
+
+
    const newUserFn = async ({ email, password, user }) => {
       alertTimer('info', 'Registrando...');
       try {
@@ -31,8 +41,11 @@ const AuthProvider = ({ children }) => {
          await updateProfile(auth.currentUser, {
             displayName: user
          });
-
-         Router.push('/');
+         await sendEmailVerification(auth.currentUser);
+          if (!auth.currentUser.emailVerified) {
+             return checkEmailVerified();
+          }
+          Router.push('/');
       } catch (error) {
          console.error(error.message);
          alertTimer('error', checkResponse(error.code));
@@ -42,7 +55,12 @@ const AuthProvider = ({ children }) => {
    const loginFn = async ({ email, password }) => {
       alertTimer('info', 'Cargando...');
       try {
-         await signInWithEmailAndPassword(auth, email, password);
+         const a = await signInWithEmailAndPassword(auth, email, password);
+         //email not verified
+         if (!a?.user?.emailVerified) {
+            return checkEmailVerified();
+         }
+         console.log('lo saltó');
          Router.push('/');
       } catch (error) {
          console.error(error.code);

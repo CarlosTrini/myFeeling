@@ -10,7 +10,7 @@ const useCheckUser = () => {
    const checkUser = async () => {
       try {
          await statusLogin();
-         if (userSession.uid) {
+         if (userSession.uid && userSession.emailVerified) {
             Router.push('/');
          }
       } catch (error) {

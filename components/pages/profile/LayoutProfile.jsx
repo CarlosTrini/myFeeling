@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import Layout from "../../components/pages/Layout";
+import Layout from "../Layout";
 import NavbarProfile from "./NavbarProfile";
 
 export default function LayoutProfile({children}) {

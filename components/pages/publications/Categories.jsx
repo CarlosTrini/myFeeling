@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-import styles from '../../styles/modules/pubs.module.css';
-import categoriesImg from '../../public/img/chose.svg'
+import styles from '../../../styles/modules/pubs.module.css';
+import categoriesImg from '../../../public/img/chose.svg'
 
 const Categories = ({ categoriesList }) => {
 

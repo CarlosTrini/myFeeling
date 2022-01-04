@@ -1,12 +1,12 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 
-import LayoutProfile from '../../../components/pages/LayoutProfile';
+import LayoutProfile from '../../../components/pages/profile/LayoutProfile';
 import userContext from '../../../context/userContext/userContext';
 import authContext from '../../../context/authContext/authContext';
 
 import styles from '../../../styles/modules/profile.module.css';
-import UserPubs from '../../../components/pages/UserPubs';
+import UserPubs from '../../../components/pages/profile/UserPubs';
 
 const userpublications = () => {
    const { userSession } = useContext(authContext);

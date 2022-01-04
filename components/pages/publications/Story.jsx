@@ -1,15 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Image from 'next/image';
 
-import authContext from '../../context/authContext/authContext';
-import userContext from '../../context/userContext/userContext';
-import Modal from '../Modal';
-import { alertOptions, alertTimer } from '../../helpers/sweetAlerts';
-import commentValidationFn from '../../validationForms/commentValidation';
+import authContext from '../../../context/authContext/authContext';
+import userContext from '../../../context/userContext/userContext';
+import Modal from '../../Modal';
+import { alertOptions, alertTimer } from '../../../helpers/sweetAlerts';
+import commentValidationFn from '../../../validationForms/commentValidation';
 
-import styles from '../../styles/modules/pubs.module.css'; // CONTENT STYLES MODAL
-import voteIcon from '../../public/img/heart.svg';
-import voteEmptyIcon from '../../public/img/heart-empty.svg';
+
+import styles from '../../../styles/modules/pubs.module.css'; // CONTENT STYLES MODAL
+import voteIcon from '../../../public/img/heart.svg';
+import voteEmptyIcon from '../../../public/img/heart-empty.svg';
 const voteIcons = {
    'empty': voteEmptyIcon,
    'fill': voteIcon

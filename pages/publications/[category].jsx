@@ -4,11 +4,11 @@ import { db } from '../../firebase/firebaseConfig';
 import { collection, query, where, getDocs, doc, getDoc } from "firebase/firestore";
 
 import Layout from "../../components/pages/Layout";
-import Categories from "../../components/pages/Categories";
+import Categories from "../../components/pages/publications/Categories";
+import Stories from "../../components/pages/publications/Stories";
 import { alertTimer } from "../../helpers/sweetAlerts";
 
 import styles from '../../styles/modules/pubs.module.css';
-import Stories from "../../components/pages/Stories";
 
 export default function publications({ data }) {
    const { storiesList, categoriesList, category, error } = data;

@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-import styles from '../../styles/modules/profile.module.css';
-import authContext from '../../context/authContext/authContext';
+import styles from '../../../styles/modules/profile.module.css';
+import authContext from '../../../context/authContext/authContext';
 
 const NavbarProfile = () => {
    const router = useRouter();

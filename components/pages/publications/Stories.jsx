@@ -2,7 +2,7 @@ import React from 'react';
 
 import StoryCard from './StoryCard';
 
-import styles from '../../styles/modules/pubs.module.css';
+import styles from '../../../styles/modules/pubs.module.css';
 
 const Stories = ({storiesList, category}) => {
    return (
