@@ -6,7 +6,7 @@ import useCheckUser from '../hooks/useCheckUser';
 import styles from '../styles/modules/auth.module.css';
 import registerValidation from '../validationForms/registerValidation';
 
-const register = () => {
+const Register = () => {
    // auth context
    const { newUserFn } = useContext(authContext);
 
@@ -85,4 +85,4 @@ const register = () => {
    )
 }
 
-export default register
+export default Register

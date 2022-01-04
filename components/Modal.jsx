@@ -18,10 +18,10 @@ const Modal = ({ children, setModalToggle }) => {
             <button
                onClick={handleModal}
                className={`btn ${styles.modal__close}`}
-               alt='click para cerrar el modal'
-            >
+               >
                <Image
                   src={closeIcon}
+                  alt='click para cerrar el modal'
                />
             </button>
 

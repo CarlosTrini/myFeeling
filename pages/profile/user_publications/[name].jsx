@@ -8,7 +8,7 @@ import authContext from '../../../context/authContext/authContext';
 import styles from '../../../styles/modules/profile.module.css';
 import UserPubs from '../../../components/pages/profile/UserPubs';
 
-const userpublications = () => {
+const UserPublications = () => {
    const { userSession } = useContext(authContext);
    const { getPublicationsFn } = useContext(userContext);
 
@@ -47,6 +47,7 @@ const userpublications = () => {
 
    useEffect(() => {
       getData()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [name, userSession])
 
    return (
@@ -71,4 +72,4 @@ const userpublications = () => {
    )
 }
 
-export default userpublications;
+export default UserPublications;

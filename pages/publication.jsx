@@ -12,7 +12,7 @@ import likeIcon from '../public/img/heart.svg';
 import authContext from '../context/authContext/authContext';
 import userContext from '../context/userContext/userContext';
 
-export default function publication() {
+export default function Publication() {
 
   //auth context
   const { userSession } = useContext(authContext);
@@ -61,6 +61,7 @@ export default function publication() {
 
   useEffect(() => {
     setCategoriesList(categories);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categories])
 
   return (

@@ -30,6 +30,7 @@ const StoryCard = ({ story }) => {
 
    useEffect(() => {
       if (urlimage) setStoryImage(urlimage);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    return (

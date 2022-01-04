@@ -9,7 +9,7 @@ import { regexEmail } from '../helpers/constants';
 import styles from '../styles/modules/auth.module.css';
 import { alertTimer } from '../helpers/sweetAlerts';
 
-const index = () => {
+const Login = () => {
    
     
    // auth context
@@ -91,4 +91,4 @@ const index = () => {
    )
 }
 
-export default index
+export default Login;

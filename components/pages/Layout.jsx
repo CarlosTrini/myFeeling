@@ -10,6 +10,7 @@ const Layout = ({ children }) => {
    // set user data en userSession...
    useEffect(() => {
       statusLogin();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [userSession])
 
    return (

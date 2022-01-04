@@ -72,6 +72,7 @@ const Story = ({ setModalToggle, story }) => {
       if (userSession.uid === writer.id) {
          setIsOwner(true);
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [vote, userSession])
 
    return (

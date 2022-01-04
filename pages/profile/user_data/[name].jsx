@@ -5,13 +5,10 @@ import authContext from '../../../context/authContext/authContext';
 
 import styles from '../../../styles/modules/profile.module.css';
 
-const userdata = () => {
+const UserData = () => {
 
    const {userSession} = useContext(authContext);
    const {displayName, email, emailVerified} = userSession;
-
-
-
 
 
    return (
@@ -28,4 +25,4 @@ const userdata = () => {
    )
 }
 
-export default userdata;
+export default UserData;

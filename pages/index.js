@@ -24,7 +24,7 @@ export default function Home({ dataCategories }) {
     if (dataCategories.error) {
       setErrorCategories(true);
     }
-
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userSession, dataCategories]);
 
   return (

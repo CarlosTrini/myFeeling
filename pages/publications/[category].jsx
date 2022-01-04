@@ -10,7 +10,7 @@ import { alertTimer } from "../../helpers/sweetAlerts";
 
 import styles from '../../styles/modules/pubs.module.css';
 
-export default function publications({ data }) {
+export default function Publications({ data }) {
    const { storiesList, categoriesList, category, error } = data;
 
    return (
