@@ -1,6 +1,5 @@
 import React from "react";
 
-import { getFirestore } from 'firebase/firestore';
 import { db, app } from '../../firebase/firebaseConfig';
 import { collection, query, where, getDocs, doc, getDoc } from "firebase/firestore";
 
@@ -44,13 +43,13 @@ export default function Publications({ data }) {
    )
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
    const category = context.params.category;
    let data = { error: false, storiesList: [], category };
 
    try {
       // stories document
-      const storiesFilter = query(collection(getFirestore(app), "stories"), where('category', '==', category));
+      const storiesFilter = query(collection(db, "stories"), where('category', '==', category));
       // categories document
       const categoriesRef = doc(db, "categories", "id_categories_document");
 
