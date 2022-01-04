@@ -22,4 +22,4 @@ const firebaseConfig = {
   const db = getFirestore(); // cloud firestore (database)
   const storage = getStorage();
 
-  export { auth, db, storage };
+  export { auth, db, storage, app };

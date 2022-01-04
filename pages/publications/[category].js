@@ -1,8 +1,7 @@
 import React from "react";
 
-import { initializeApp } from "@firebase/app";
 import { getFirestore } from 'firebase/firestore';
-// import { db } from '../../firebase/firebaseConfig';
+import { db, app } from '../../firebase/firebaseConfig';
 import { collection, query, where, getDocs, doc, getDoc } from "firebase/firestore";
 
 import Layout from "../../components/pages/Layout";
@@ -49,21 +48,9 @@ export async function getServerSideProps(context) {
    const category = context.params.category;
    let data = { error: false, storiesList: [], category };
 
-
-   const app = initializeApp({
-      apiKey: process.env.NEXT_PUBLIC_API_KEY,
-      authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
-      projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
-      databaseURL: process.env.NEXT_PUBLIC_DATABASE_URL,
-      storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
-      messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
-      appId: process.env.NEXT_PUBLIC_APP_ID
-    });
-     const db = getFirestore(); // cloud firestore (database)
-
    try {
       // stories document
-      const storiesFilter = query(collection(db, "stories"), where('category', '==', category));
+      const storiesFilter = query(collection(getFirestore(app), "stories"), where('category', '==', category));
       // categories document
       const categoriesRef = doc(db, "categories", "id_categories_document");
 
