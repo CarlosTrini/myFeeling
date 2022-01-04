@@ -43,8 +43,9 @@ export default function Publications({ data }) {
    )
 }
 
-export async function getStaticProps(context) {
-   
+export async function getServerSideProps(context) {
+
+
    const category = context.params.category;
    let data = { error: false, storiesList: [], category };
 
