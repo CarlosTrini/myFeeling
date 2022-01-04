@@ -57,6 +57,7 @@ export default function Publication() {
       writer.id = userSession.uid;
     }
     getCategoriesFn();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userSession]);
 
   useEffect(() => {
