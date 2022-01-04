@@ -1,3 +1,4 @@
+import Head from "next/head";
 import AuthProvider from "../context/authContext/AuthProvider";
 import UserProvider from "../context/userContext/UserProvider";
 
@@ -6,11 +7,16 @@ import '../styles/normalize.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AuthProvider>
-      <UserProvider>
-        <Component {...pageProps} />
-      </UserProvider>
-    </AuthProvider>
+    <>
+      <Head>
+        <title>MyFeeling</title>
+      </Head>
+      <AuthProvider>
+        <UserProvider>
+          <Component {...pageProps} />
+        </UserProvider>
+      </AuthProvider>
+    </>
   );
 }
 
