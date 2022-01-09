@@ -43,9 +43,20 @@ export default function Publications({ data }) {
    )
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticPaths() {
+   return {
+      paths: [
+         // Object variant:
+         { params: { category: 'terror' } },
+      ],
+      fallback: true,
+   }
+}
 
 
+// getServerSideProps
+export async function getStaticProps(context) {
+   console.log('CONTEXT STATIC-PROPS ==> ', context.params);
    const category = context.params.category;
    let data = { error: false, storiesList: [], category };
 
