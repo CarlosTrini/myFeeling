@@ -1,6 +1,7 @@
 import React from "react";
+import { useRouter } from "next/router";
 
-import { db, app } from '../../firebase/firebaseConfig';
+import { db } from '../../firebase/firebaseConfig';
 import { collection, query, where, getDocs, doc, getDoc } from "firebase/firestore";
 
 import Layout from "../../components/pages/Layout";
@@ -11,7 +12,12 @@ import { alertTimer } from "../../helpers/sweetAlerts";
 import styles from '../../styles/modules/pubs.module.css';
 
 export default function Publications({ data }) {
-   const { storiesList, categoriesList, category, error } = data;
+   const {categoriesList, storiesList, category, error } = data;
+   
+   const router = useRouter();
+   if (router.isFallback) {
+      return <div>Loading...</div>
+    }
 
    return (
       <Layout>
@@ -43,21 +49,20 @@ export default function Publications({ data }) {
    )
 }
 
-export async function getStaticPaths() {
-   return {
-      paths: [
-         // Object variant:
-         { params: { category: 'terror' } },
-      ],
-      fallback: true,
-   }
-}
+// export async function getStaticPaths() {
+//    return {
+//       paths: [
+//          // Object variant:
+//          { params: { category: 'terror' } },
+//       ],
+//       fallback: true,
+//    }
+// }
 
 
-// getServerSideProps
-export async function getStaticProps(context) {
-   console.log('CONTEXT STATIC-PROPS ==> ', context.params);
-   const category = context.params.category;
+// getStaticProps
+export const getServerSideProps = async ({params}) => {
+   const category = params.category;
    let data = { error: false, storiesList: [], category };
 
    try {
@@ -66,7 +71,7 @@ export async function getStaticProps(context) {
       // categories document
       const categoriesRef = doc(db, "categories", "id_categories_document");
 
-      const [categoriesList, storiesList] = await Promise.all([
+      const [categoriesList , storiesList] = await Promise.all([
          getDoc(categoriesRef), //categories document
          getDocs(storiesFilter) //stories document
       ]);
@@ -80,7 +85,7 @@ export async function getStaticProps(context) {
       if (categoriesList.exists()) data.categoriesList = categoriesList.data().categories;
    } catch (error) {
       console.error('SE GENERÓ ESTE ERROR ==> ', error);
-      data = { ...data, error: true }
+         data = { ...data, error: true }
    }
 
    return {
