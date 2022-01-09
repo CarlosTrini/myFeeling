@@ -49,18 +49,6 @@ export default function Publications({ data }) {
    )
 }
 
-// export async function getStaticPaths() {
-//    return {
-//       paths: [
-//          // Object variant:
-//          { params: { category: 'terror' } },
-//       ],
-//       fallback: true,
-//    }
-// }
-
-
-// getStaticProps
 export const getServerSideProps = async ({params}) => {
    const category = params.category;
    let data = { error: false, storiesList: [], category };
