@@ -27,6 +27,7 @@ export default function Home({ dataCategories }) {
      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userSession, dataCategories]);
 
+  
   return (
     <Layout>
       <Hero />
